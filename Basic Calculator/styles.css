@@ -1,0 +1,153 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* General body styles */
+body {
+    display: flex; /* Center the calculator horizontally and vertically */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: #c6d6d8; /* Light blue background color */
+    font-family: 'Poppins', sans-serif; /* Font for general text */
+    margin: 0; /* Remove default margin */
+}
+
+/* Calculator container styles */
+.calculator {
+    background-color: #ffffff; /* White background for the calculator */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+    padding: 20px; /* Space inside the calculator */
+    width: 320px; /* Fixed width for the calculator */
+}
+
+/* Display section styles */
+.display {
+    margin-bottom: 20px; /* Space below the display */
+    position: relative; /* For positioning child elements if needed */
+}
+
+.display input {
+    width: 100%; /* Full width of the display container */
+    height: 60px; /* Increased height for better visibility */
+    padding: 15px; /* Increased padding inside the display */
+    font-size: 32px; /* Larger font size for readability */
+    font-family: 'Roboto Mono', monospace; /* Monospace font for display text */
+    font-weight: 700; /* Bold font weight */
+    text-align: right; /* Align text to the right */
+    border: none; /* Remove border */
+    background-color: #b2ebf2; /* Light blue-green background for the display */
+    border-radius: 5px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for background color and transform */
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for a pressed effect */
+}
+
+/* Animation when the display is active */
+.display.active input {
+    background-color: #80deea; /* Slightly darker blue-green when active */
+    transform: scale(1.05); /* Slightly enlarge the display */
+}
+
+/* Animation for text update */
+.display.update input {
+    animation: textUpdate 0.3s ease-in-out; /* Apply text update animation */
+}
+
+@keyframes textUpdate {
+    0% { transform: scale(0.95); opacity: 0.8; } /* Start with a slightly smaller and more opaque text */
+    50% { transform: scale(1.05); opacity: 1; } /* Slightly enlarge and fully opaque text */
+    100% { transform: scale(1); opacity: 1; } /* Return to normal size and opacity */
+}
+
+/* Fade-in animation when the page loads */
+@keyframes fadeIn {
+    from { opacity: 0; } /* Start with hidden content */
+    to { opacity: 1; } /* End with fully visible content */
+}
+
+.calculator {
+    animation: fadeIn 0.6s ease-in-out; /* Apply fade-in animation to the calculator */
+}
+
+/* Grid layout for buttons */
+.buttons {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Four equal-width columns */
+    grid-gap: 10px; /* Space between buttons */
+}
+
+/* General button styles */
+button {
+    padding: 20px; /* Space inside the button */
+    font-size: 24px; /* Font size for button text */
+    font-family: 'Poppins', sans-serif; /* Font for button text */
+    font-weight: 600; /* Bolder font weight */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for background color and transform */
+}
+
+/* Digit buttons */
+button:not(.operator):not(.special) {
+    background-color: #e0f2f1; /* Light green-blue background */
+    color: #00796b; /* Dark teal text color */
+}
+
+button:not(.operator):not(.special):hover {
+    background-color: #b2dfdb; /* Slightly darker green-blue on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Operator buttons */
+button.operator {
+    background-color: #00796b; /* Dark teal background */
+    color: white; /* White text color */
+}
+
+button.operator:hover {
+    background-color: #004d40; /* Darker teal on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+button.operator.active {
+    background-color: #004d40; /* Darker teal when active */
+    transform: scale(1.1); /* Increase size when active */
+}
+
+/* Special buttons (Clear and Equals) */
+button.special {
+    background-color: #0097a7; /* Blue-green background */
+    color: white; /* White text color */
+}
+
+button.special:hover {
+    background-color: #006064; /* Darker blue-green on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Clear button */
+button.clear-btn {
+    background-color: #e53935; /* Red background */
+    color: white; /* White text color */
+}
+
+button.clear-btn:hover {
+    background-color: #c62828; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Equal button */
+.equal-btn {
+    grid-column: span 4; /* Span across all four columns */
+    background-color: #009688; /* Teal background */
+    color: white; /* White text color */
+    padding: 15px; /* Reduced padding for equal button */
+    font-size: 20px; /* Reduced font size for equal button */
+}
+
+.equal-btn:hover {
+    background-color: #00796b; /* Darker teal on hover */
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
